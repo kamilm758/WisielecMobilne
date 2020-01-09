@@ -1,19 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Android.App;
-using Android.Content;
-using Android.Hardware;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Runtime.Serialization.Json;
+using System.Text;
 
 namespace Wisielec.States
 {
+    public class DataObject
+    {
+        public string userId { get; set; }
+        public string id { get; set; }
+        public string title { get; set; }
+        public string completed { get; set; }
+    }
+
     class MenuState : IComponent
     {
         private Game1 game;
@@ -23,6 +29,7 @@ namespace Wisielec.States
         private Vector2 windowSize;
         private SpriteFont menuFont;
         int licznik = 0;
+        string slowo="";
         public MenuState(Game1 game)
         {
             this.game = game;
@@ -38,14 +45,15 @@ namespace Wisielec.States
                 , (int)(2 * windowSize.Y / 5), (int)windowSize.X / 5, (int)windowSize.Y / 8));
             colors.Add("nowaGra", Color.White);
             menuFont = game.Content.Load<SpriteFont>("fontMenu");
+            slowo = GetWord();
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(tekstury["background"], new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height), Color.White);
             spriteBatch.Draw(tekstury["nowaGra"],rectangles["nowaGra"] ,colors["nowaGra"]);
-            spriteBatch.DrawString(menuFont,licznik.ToString(),
-                new Vector2(0, 0), Color.Black);
+            spriteBatch.DrawString(menuFont,slowo,new Vector2(0, 0), Color.Black);
+            spriteBatch.DrawString(menuFont, licznik.ToString(),new Vector2(300, 0), Color.Black);
         }
 
         public void Update(GameTime gameTime)
@@ -71,6 +79,21 @@ namespace Wisielec.States
                     break;
                 }
             }
+        }
+
+        public string GetWord()
+        {
+            string URL = "https://jsonplaceholder.typicode.com/todos/1";
+
+            DataObject dataObject = new DataObject();
+            string response = "";
+            using (var client = new WebClient() { UseDefaultCredentials = true })
+            {
+                response = client.DownloadString(URL);
+            }
+
+            dataObject = JsonConvert.DeserializeObject<DataObject>(response);
+            return dataObject.title;
         }
     }
 }

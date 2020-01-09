@@ -4,6 +4,10 @@ public class MonoPackageManager_Resources {
 		/* We need to ensure that "Wisielec.dll" comes first in this list. */
 		"Wisielec.dll",
 		"MonoGame.Framework.dll",
+		"Newtonsoft.Json.Bson.dll",
+		"Newtonsoft.Json.dll",
+		"System.Net.Http.Formatting.dll",
+		"System.Private.DataContractSerialization.dll",
 	};
 	public static String[] Dependencies = new String[]{
 	};
