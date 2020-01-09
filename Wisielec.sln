@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wisielec", "Wisielec\Wisielec.csproj", "{4AEB250F-ADC1-435F-A759-762E15CE363A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4AEB250F-ADC1-435F-A759-762E15CE363A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AEB250F-ADC1-435F-A759-762E15CE363A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AEB250F-ADC1-435F-A759-762E15CE363A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4AEB250F-ADC1-435F-A759-762E15CE363A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AEB250F-ADC1-435F-A759-762E15CE363A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AEB250F-ADC1-435F-A759-762E15CE363A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08AD82B5-E6C5-4ACE-A064-EDDBBDAE17D0}
+	EndGlobalSection
+EndGlobal

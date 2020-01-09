@@ -1,0 +1,4 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/kamil/Desktop/Wisielec mobilki/Wisielec/Content/background.png","C:/Users/kamil/Desktop/Wisielec mobilki/Wisielec/Content/bin/Android/background.xnb","TextureProcessor","Texture2DContent",350606,1666885,0,3945878
+"C:/Users/kamil/Desktop/Wisielec mobilki/Wisielec/Content/fontMenu.spritefont","C:/Users/kamil/Desktop/Wisielec mobilki/Wisielec/Content/bin/Android/fontMenu.xnb","FontDescriptionProcessor","SpriteFontContent",2008,136209,0,4017141
+"C:/Users/kamil/Desktop/Wisielec mobilki/Wisielec/Content/NowaGra.png","C:/Users/kamil/Desktop/Wisielec mobilki/Wisielec/Content/bin/Android/NowaGra.xnb","TextureProcessor","Texture2DContent",2395,16165,0,0400155
