@@ -20,11 +20,16 @@ namespace Wisielec
 
         private static TouchCollection CurrentTouches = TouchPanel.GetState();
         private static TouchCollection PreviousTouches;
+        private static bool isPress = false;
 
         public static void Update(GameTime gameTime)
         {
             PreviousTouches = CurrentTouches;
             CurrentTouches = TouchPanel.GetState();
+            if (CurrentTouches.Count == 0)
+            {
+                isPress = false;
+            }
         }
 
         public static List<TouchLocation> GetTouches()
@@ -38,9 +43,11 @@ namespace Wisielec
             {
                 foreach(var touch in CurrentTouches)
                 {
-                    if (!PreviousTouches.Contains(touch))
+                    if (!PreviousTouches.Contains(touch) && isPress == false)
                     {
                         touches.Add(touch);
+                        if (touches.Count == 1)
+                            isPress = true;
                     }
                 }
             }

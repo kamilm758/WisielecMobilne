@@ -1,3 +1,4 @@
+using Android.Hardware;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -13,10 +14,12 @@ namespace Wisielec
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         IComponent currentState;
+        Activity1 activity;
 
-        public Game1()
+        public Game1(Activity1 activity)
         {
             graphics = new GraphicsDeviceManager(this);
+            this.activity = activity;
             Content.RootDirectory = "Content";
 
             graphics.IsFullScreen = true;
@@ -89,6 +92,11 @@ namespace Wisielec
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        public Activity1 GetActivity()
+        {
+            return activity;
         }
     }
 }

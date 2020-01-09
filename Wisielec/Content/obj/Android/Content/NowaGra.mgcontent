@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/kamil/Desktop/Wisielec mobilki/Wisielec/Content/NowaGra.png</SourceFile>
+  <SourceFile>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/NowaGra.png</SourceFile>
   <SourceTime>2020-01-09T09:09:17.139214+01:00</SourceTime>
-  <DestFile>C:/Users/kamil/Desktop/Wisielec mobilki/Wisielec/Content/bin/Android/Content/NowaGra.xnb</DestFile>
-  <DestTime>2020-01-09T09:19:40.8130111+01:00</DestTime>
+  <DestFile>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/bin/Android/Content/NowaGra.xnb</DestFile>
+  <DestTime>2020-01-09T10:57:55.1783705+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

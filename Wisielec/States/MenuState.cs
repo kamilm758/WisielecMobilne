@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Android.App;
 using Android.Content;
+using Android.Hardware;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -21,7 +22,7 @@ namespace Wisielec.States
         private Dictionary<string, Color> colors = new Dictionary<string, Color>();
         private Vector2 windowSize;
         private SpriteFont menuFont;
-        private int licznik = 0;
+        int licznik = 0;
         public MenuState(Game1 game)
         {
             this.game = game;
@@ -43,7 +44,8 @@ namespace Wisielec.States
         {
             spriteBatch.Draw(tekstury["background"], new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height), Color.White);
             spriteBatch.Draw(tekstury["nowaGra"],rectangles["nowaGra"] ,colors["nowaGra"]);
-            spriteBatch.DrawString(menuFont, licznik.ToString(), new Vector2(0, 0), Color.Black);
+            spriteBatch.DrawString(menuFont,licznik.ToString(),
+                new Vector2(0, 0), Color.Black);
         }
 
         public void Update(GameTime gameTime)
@@ -66,6 +68,7 @@ namespace Wisielec.States
                 {
                     colors["nowaGra"] = Color.Red;
                     licznik++;
+                    break;
                 }
             }
         }
