@@ -6,6 +6,12 @@ public class MonoPackageManager_Resources {
 		"MonoGame.Framework.dll",
 		"Newtonsoft.Json.Bson.dll",
 		"Newtonsoft.Json.dll",
+		"SQLite-net.dll",
+		"SQLitePCLRaw.batteries_green.dll",
+		"SQLitePCLRaw.batteries_v2.dll",
+		"SQLitePCLRaw.core.dll",
+		"SQLitePCLRaw.lib.e_sqlite3.dll",
+		"SQLitePCLRaw.provider.e_sqlite3.dll",
 		"System.Net.Http.Formatting.dll",
 		"System.Private.DataContractSerialization.dll",
 	};

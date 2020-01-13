@@ -265,3 +265,17 @@ C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Deb
 C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\System.Reflection.TypeExtensions.pdb
 C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\System.Resources.ResourceManager.dll
 C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\System.Xml.XmlSerializer.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\bin\Android\AnyCPU\Debug\SQLite-net.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\bin\Android\AnyCPU\Debug\SQLitePCLRaw.batteries_green.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\bin\Android\AnyCPU\Debug\SQLitePCLRaw.batteries_v2.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\bin\Android\AnyCPU\Debug\SQLitePCLRaw.core.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\bin\Android\AnyCPU\Debug\SQLitePCLRaw.lib.e_sqlite3.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\bin\Android\AnyCPU\Debug\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\bin\Android\AnyCPU\Debug\SQLite-net.xml
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\SQLite-net.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\SQLitePCLRaw.batteries_green.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\SQLitePCLRaw.batteries_v2.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\SQLitePCLRaw.core.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\SQLitePCLRaw.lib.e_sqlite3.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\stamp\SetupDependenciesForDesigner.stamp

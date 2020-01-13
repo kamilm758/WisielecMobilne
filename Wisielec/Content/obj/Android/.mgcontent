@@ -4,11 +4,21 @@
   <Platform>Android</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/kamil/Desktop/Wisielec mobilki/Wisielec/Content/background.png</File>
-    <File>C:/Users/kamil/Desktop/Wisielec mobilki/Wisielec/Content/fontMenu.spritefont</File>
-    <File>C:/Users/kamil/Desktop/Wisielec mobilki/Wisielec/Content/NowaGra.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/background.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/fontMenu.spritefont</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/letters/a.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/NowaGra.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/Potwierdz.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/Powrot.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/Ranking.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/TitleFont.spritefont</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -69,6 +69,9 @@ namespace Wisielec
 			// aapt resource value: 0x7F020001
 			public const int Hello = 2130837505;
 			
+			// aapt resource value: 0x7F020002
+			public const int wpiszNazweGracza = 2130837506;
+			
 			static String()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();

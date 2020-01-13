@@ -1,8 +1,10 @@
-using Android.Hardware;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Wisielec.States;
+using System.IO;
+using System;
+using Wisielec.Database;
 
 namespace Wisielec
 {
@@ -15,6 +17,11 @@ namespace Wisielec
         SpriteBatch spriteBatch;
         IComponent currentState;
         Activity1 activity;
+        string playerName = "GallAnonim";
+        SqliteDatabase database = new SqliteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
+            , "ranking.db3"));
+
+        
 
         public Game1(Activity1 activity)
         {
@@ -23,9 +30,8 @@ namespace Wisielec
             Content.RootDirectory = "Content";
 
             graphics.IsFullScreen = true;
-            //graphics.PreferredBackBufferWidth = 800;
-            //graphics.PreferredBackBufferHeight = 480;
             graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
+            
         }
 
         /// <summary>
@@ -75,6 +81,7 @@ namespace Wisielec
 
             // TODO: Add your update logic here
             currentState.Update(gameTime);
+            TouchManager.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -97,6 +104,26 @@ namespace Wisielec
         public Activity1 GetActivity()
         {
             return activity;
+        } 
+
+        public SqliteDatabase GetDatabase()
+        {
+            return database;
+        }
+
+        public void SetCurrentState(IComponent state)
+        {
+            this.currentState = state;
+        }
+
+        public void SetPlayerName(string playerName)
+        {
+            this.playerName = playerName;
+        }
+
+        public string GetPlayerName()
+        {
+            return this.playerName;
         }
     }
 }
