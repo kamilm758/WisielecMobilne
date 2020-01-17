@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
+using RestSharp;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading;
@@ -10,13 +11,6 @@ using Wisielec.Models;
 
 namespace Wisielec.States
 {
-    public class DataObject
-    {
-        public string userId { get; set; }
-        public string id { get; set; }
-        public string title { get; set; }
-        public string completed { get; set; }
-    }
 
     class MenuState : IComponent
     {
@@ -26,13 +20,10 @@ namespace Wisielec.States
         private Vector2 windowSize;
         private SpriteFont menuFont;
         private SpriteFont titleFont;
-        private SqliteDatabase database;
-        string slowo="";
         List<RankingItem> ranking = new List<RankingItem>();
         public MenuState(Game1 game)
         {
             this.game = game;
-            database = game.GetDatabase();
             windowSize = new Vector2(game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
             LoadContent();
         }
@@ -60,8 +51,6 @@ namespace Wisielec.States
             spriteBatch.DrawString(titleFont, "Wisielec", new Vector2(windowSize.X / 2 - 260, windowSize.Y / 5),Color.White);
             spriteBatch.Draw(tekstury["nowaGra"],rectangles["nowaGra"] ,Color.White);
             spriteBatch.Draw(tekstury["ranking"], rectangles["ranking"], Color.White);
-            spriteBatch.DrawString(menuFont,slowo,new Vector2(0, 0), Color.Black);
-            GetRankingItem();
             for(int i = 0; i < ranking.Count; i++)
             {
                 spriteBatch.DrawString(menuFont, ranking[i].PlayerName + " id: " + ranking[i].ID
@@ -84,31 +73,9 @@ namespace Wisielec.States
 
                 if (rectangles["ranking"].Intersects(new Rectangle((int)touch.Position.X, (int)touch.Position.Y, 1, 1)))
                 {
-                    
+                   //wyświetlenie rankingu
                 }
             }
-        }
-
-        public string GetWord()
-        {
-            string URL = "https://jsonplaceholder.typicode.com/todos/1";
-
-            DataObject dataObject = new DataObject();
-            string response = "";
-            using (var client = new WebClient() { UseDefaultCredentials = true })
-            {
-                response = client.DownloadString(URL);
-            }
-
-            dataObject = JsonConvert.DeserializeObject<DataObject>(response);
-            return dataObject.title;
-        }
-
-        private async void GetRankingItem()
-        {
-            ranking = await database.GetRankingItemsAsync();
-            if (ranking == null)
-                ranking = new List<RankingItem>();
         }
     }
 }

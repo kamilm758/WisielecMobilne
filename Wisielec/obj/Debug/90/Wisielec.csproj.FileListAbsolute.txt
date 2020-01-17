@@ -278,4 +278,6 @@ C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Deb
 C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\SQLitePCLRaw.core.dll
 C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\SQLitePCLRaw.lib.e_sqlite3.dll
 C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\stamp\SetupDependenciesForDesigner.stamp
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\bin\Android\AnyCPU\Debug\RestSharp.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\bin\Android\AnyCPU\Debug\RestSharp.xml
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\RestSharp.dll

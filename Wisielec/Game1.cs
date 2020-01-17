@@ -17,7 +17,6 @@ namespace Wisielec
         SpriteBatch spriteBatch;
         IComponent currentState;
         Activity1 activity;
-        string playerName = "GallAnonim";
         SqliteDatabase database = new SqliteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
             , "ranking.db3"));
 
@@ -114,16 +113,6 @@ namespace Wisielec
         public void SetCurrentState(IComponent state)
         {
             this.currentState = state;
-        }
-
-        public void SetPlayerName(string playerName)
-        {
-            this.playerName = playerName;
-        }
-
-        public string GetPlayerName()
-        {
-            return this.playerName;
         }
     }
 }

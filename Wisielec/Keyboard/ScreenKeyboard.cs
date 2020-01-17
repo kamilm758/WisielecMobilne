@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input.Touch;
 
 namespace Wisielec.Keyboard
 {
@@ -38,34 +39,34 @@ namespace Wisielec.Keyboard
             int letterWidth = (int)windowSize.X / 20;
             int letterHeight = (int)windowSize.Y / 10;
             //pierwszy rząd od góry
-            rectangles.Add("q", new Rectangle((int)(2 * windowSize.X / 14), 300,letterWidth ,letterHeight));
-            rectangles.Add("w", new Rectangle((int)(3 * windowSize.X / 14), 300, letterWidth, letterHeight));
-            rectangles.Add("e", new Rectangle((int)(4 * windowSize.X / 14), 300, letterWidth, letterHeight));
-            rectangles.Add("r", new Rectangle((int)(5 * windowSize.X / 14), 300, letterWidth, letterHeight));
-            rectangles.Add("t", new Rectangle((int)(6 * windowSize.X / 14), 300, letterWidth, letterHeight));
-            rectangles.Add("y", new Rectangle((int)(7 * windowSize.X / 14), 300, letterWidth, letterHeight));
-            rectangles.Add("u", new Rectangle((int)(8 * windowSize.X / 14), 300, letterWidth, letterHeight));
-            rectangles.Add("i", new Rectangle((int)(9 * windowSize.X / 14), 300, letterWidth, letterHeight));
-            rectangles.Add("o", new Rectangle((int)(10 * windowSize.X / 14), 300, letterWidth, letterHeight));
-            rectangles.Add("p", new Rectangle((int)(11 * windowSize.X / 14), 300, letterWidth, letterHeight));
+            rectangles.Add("q", new Rectangle((int)(5 * windowSize.X / 16), (int)(4*windowSize.Y/8),letterWidth ,letterHeight));
+            rectangles.Add("w", new Rectangle((int)(6 * windowSize.X / 16), (int)(4*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("e", new Rectangle((int)(7 * windowSize.X / 16), (int)(4*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("r", new Rectangle((int)(8 * windowSize.X / 16), (int)(4*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("t", new Rectangle((int)(9 * windowSize.X / 16), (int)(4*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("y", new Rectangle((int)(10 * windowSize.X / 16), (int)(4*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("u", new Rectangle((int)(11 * windowSize.X / 16), (int)(4*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("i", new Rectangle((int)(12 * windowSize.X / 16), (int)(4*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("o", new Rectangle((int)(13 * windowSize.X / 16), (int)(4*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("p", new Rectangle((int)(14 * windowSize.X / 16), (int)(4*windowSize.Y/8), letterWidth, letterHeight));
             //drugi rząd
-            rectangles.Add("a", new Rectangle((int)(2 * windowSize.X / 14) + letterWidth / 2, 430, letterWidth, letterHeight));
-            rectangles.Add("s", new Rectangle((int)(3 * windowSize.X / 14) + letterWidth / 2, 430, letterWidth, letterHeight));
-            rectangles.Add("d", new Rectangle((int)(4 * windowSize.X / 14) + letterWidth / 2, 430, letterWidth, letterHeight));
-            rectangles.Add("f", new Rectangle((int)(5 * windowSize.X / 14) + letterWidth / 2, 430, letterWidth, letterHeight));
-            rectangles.Add("g", new Rectangle((int)(6 * windowSize.X / 14) + letterWidth / 2, 430, letterWidth, letterHeight));
-            rectangles.Add("h", new Rectangle((int)(7 * windowSize.X / 14) + letterWidth / 2, 430, letterWidth, letterHeight));
-            rectangles.Add("j", new Rectangle((int)(8 * windowSize.X / 14) + letterWidth / 2, 430, letterWidth, letterHeight));
-            rectangles.Add("k", new Rectangle((int)(9 * windowSize.X / 14) + letterWidth / 2, 430, letterWidth, letterHeight));
-            rectangles.Add("l", new Rectangle((int)(10 * windowSize.X / 14) + letterWidth / 2, 430, letterWidth, letterHeight));
+            rectangles.Add("a", new Rectangle((int)(5 * windowSize.X / 16) + letterWidth / 2, (int)(5*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("s", new Rectangle((int)(6 * windowSize.X / 16) + letterWidth / 2, (int)(5*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("d", new Rectangle((int)(7 * windowSize.X / 16) + letterWidth / 2, (int)(5*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("f", new Rectangle((int)(8 * windowSize.X / 16) + letterWidth / 2, (int)(5*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("g", new Rectangle((int)(9 * windowSize.X / 16) + letterWidth / 2, (int)(5*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("h", new Rectangle((int)(10 * windowSize.X / 16) + letterWidth / 2, (int)(5*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("j", new Rectangle((int)(11 * windowSize.X / 16) + letterWidth / 2, (int)(5*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("k", new Rectangle((int)(12 * windowSize.X / 16) + letterWidth / 2, (int)(5*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("l", new Rectangle((int)(13 * windowSize.X / 16) + letterWidth / 2, (int)(5*windowSize.Y/8), letterWidth, letterHeight));
             //trzeci rząd
-            rectangles.Add("z", new Rectangle((int)(2 * windowSize.X / 14) + letterWidth, 560, letterWidth, letterHeight));
-            rectangles.Add("x", new Rectangle((int)(3 * windowSize.X / 14) + letterWidth, 560, letterWidth, letterHeight));
-            rectangles.Add("c", new Rectangle((int)(4 * windowSize.X / 14) + letterWidth, 560, letterWidth, letterHeight));
-            rectangles.Add("v", new Rectangle((int)(5 * windowSize.X / 14) + letterWidth, 560, letterWidth, letterHeight));
-            rectangles.Add("b", new Rectangle((int)(6 * windowSize.X / 14) + letterWidth, 560, letterWidth, letterHeight));
-            rectangles.Add("n", new Rectangle((int)(7 * windowSize.X / 14) + letterWidth, 560, letterWidth, letterHeight));
-            rectangles.Add("m", new Rectangle((int)(8 * windowSize.X / 14) + letterWidth, 560, letterWidth, letterHeight));
+            rectangles.Add("z", new Rectangle((int)(6 * windowSize.X / 16) + letterWidth, (int)(6*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("x", new Rectangle((int)(7 * windowSize.X / 16) + letterWidth, (int)(6*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("c", new Rectangle((int)(8 * windowSize.X / 16) + letterWidth, (int)(6*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("v", new Rectangle((int)(9 * windowSize.X / 16) + letterWidth, (int)(6*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("b", new Rectangle((int)(10 * windowSize.X / 16) + letterWidth, (int)(6*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("n", new Rectangle((int)(11 * windowSize.X / 16) + letterWidth, (int)(6*windowSize.Y/8), letterWidth, letterHeight));
+            rectangles.Add("m", new Rectangle((int)(12 * windowSize.X / 16) + letterWidth, (int)(6*windowSize.Y/8), letterWidth, letterHeight));
 
             //kolory
             colors.Add("q", Color.White);
@@ -131,9 +132,9 @@ namespace Wisielec.Keyboard
             spriteBatch.Draw(tekstury["a"], rectangles["m"], colors["m"]);
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, List<TouchLocation> touches)
         {
-            foreach(var touch in TouchManager.GetTouches())
+            foreach(var touch in touches)
             {
                 foreach(var key in rectangles)
                 {
