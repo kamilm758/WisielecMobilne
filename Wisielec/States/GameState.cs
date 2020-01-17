@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Wisielec.HangmanSpriteBuilder;
 using Wisielec.Keyboard;
 
 namespace Wisielec.States
@@ -28,6 +29,7 @@ namespace Wisielec.States
         private string definitionPartOne = "";
         private string definitionPartTwo = "";
         private int definitionDivider;
+        private HangmanBuilder hangmanBuilder;
 
         public GameState(Game1 game, string playerName, WordAPI word)
         {
@@ -35,8 +37,9 @@ namespace Wisielec.States
             this.playerName = playerName;
             this.word = word;
             this.keyboard = new ScreenKeyboard(game);
-            this.definitionDivider = word.Results[0].Definition.Length;
             windowSize = new Vector2(game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
+            definitionDivider = (int)windowSize.X / 27;
+            hangmanBuilder = new HangmanBuilder(game);
             LoadContent();
         }
 
@@ -50,18 +53,22 @@ namespace Wisielec.States
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(tekstury["background"], new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height), Color.White);
-            spriteBatch.DrawString(descriptionFont, definitionPartOne, new Vector2(20, 20), Color.White);
-            spriteBatch.DrawString(descriptionFont, definitionPartTwo, new Vector2(20, 100), Color.White);
-            spriteBatch.DrawString(descriptionFont, word.Word, new Vector2(100, 200), Color.White);
+            spriteBatch.DrawString(descriptionFont, definitionPartOne, new Vector2((windowSize.X/2)-(11*definitionPartOne.Length), windowSize.Y/12), Color.White);
+            spriteBatch.DrawString(descriptionFont, definitionPartTwo, new Vector2((windowSize.X / 2) - (11 * definitionPartTwo.Length), 2*windowSize.Y/12), Color.White);
+            spriteBatch.DrawString(descriptionFont, word.Word, new Vector2((windowSize.X/2)-(11*word.Word.Length), 4*windowSize.Y/12), Color.White);
+            keyboard.Draw(spriteBatch, gameTime);
+            hangmanBuilder.Draw(spriteBatch, gameTime);
         }
 
         public void Update(GameTime gameTime)
         {
-            
+            var touches = TouchManager.GetTouches();
+            keyboard.Update(gameTime, touches);
+            hangmanBuilder.Update(gameTime);
         }
         private void SplitTheDefinition()
         {
-            if (definitionDivider < 140)
+            if (definitionDivider >= word.Results[0].Definition.Length)
             {
                 definitionPartOne = word.Results[0].Definition;
                 return;
@@ -70,9 +77,9 @@ namespace Wisielec.States
             while (!word.Results[0].Definition[definitionDivider].Equals(' '))
                 definitionDivider--;
 
-            definitionPartOne = word.Results[0].Definition.Take(definitionDivider).ToString();
-            definitionPartTwo = word.Results[0].Definition
-                .TakeLast(word.Results[0].Definition.Length - definitionDivider).ToString();
+            definitionPartOne =new string(word.Results[0].Definition.Take(definitionDivider).ToArray());
+            definitionPartTwo =new string(word.Results[0].Definition
+                .TakeLast(word.Results[0].Definition.Length - definitionDivider).ToArray());
         }
     }
 }

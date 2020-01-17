@@ -96,6 +96,7 @@
     <Compile Include="Activity1.cs" />
     <Compile Include="Database\SqliteDatabase.cs" />
     <Compile Include="Game1.cs" />
+    <Compile Include="HangmanSpriteBuilder\HangmanBuilder.cs" />
     <Compile Include="IComponent.cs" />
     <Compile Include="Keyboard\ScreenKeyboard.cs" />
     <Compile Include="Models\RankingItem.cs" />

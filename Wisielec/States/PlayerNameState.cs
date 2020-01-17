@@ -88,7 +88,12 @@ namespace Wisielec.States
                 if (word.Results != null)
                 {
                     if (word.Results[0].Definition != null)
-                        break;
+                    {
+                        if (word.Results[0].Definition.Length < (int)(2 * windowSize.X / 27))
+                        {
+                            break;
+                        }
+                    }
                 }
             }
             success = true;
