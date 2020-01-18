@@ -26,7 +26,7 @@ namespace Wisielec.HangmanSpriteBuilder
         {
             this.game = game;
             windowSize = new Vector2(game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
-            hangmanRectangle = new Rectangle((int)windowSize.X / 12,(int) windowSize.Y / 2,(int) windowSize.X / 10,(int)windowSize.Y / 4);
+            hangmanRectangle = new Rectangle((int)windowSize.X / 27,(int) windowSize.Y / 12,(int) windowSize.X / 4,(int)(windowSize.Y / 1.2));
             LoadContent();
         }
         private void LoadContent()

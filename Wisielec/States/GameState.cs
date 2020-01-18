@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Wisielec.HangmanLogic;
 using Wisielec.HangmanSpriteBuilder;
 using Wisielec.Keyboard;
 
@@ -30,6 +31,7 @@ namespace Wisielec.States
         private string definitionPartTwo = "";
         private int definitionDivider;
         private HangmanBuilder hangmanBuilder;
+        private HangmanGame hangmanGame;
 
         public GameState(Game1 game, string playerName, WordAPI word)
         {
@@ -40,6 +42,7 @@ namespace Wisielec.States
             windowSize = new Vector2(game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
             definitionDivider = (int)windowSize.X / 27;
             hangmanBuilder = new HangmanBuilder(game);
+            hangmanGame = new HangmanGame(word.Word);
             LoadContent();
         }
 
@@ -53,11 +56,13 @@ namespace Wisielec.States
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             spriteBatch.Draw(tekstury["background"], new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height), Color.White);
+            hangmanBuilder.Draw(spriteBatch, gameTime);
             spriteBatch.DrawString(descriptionFont, definitionPartOne, new Vector2((windowSize.X/2)-(11*definitionPartOne.Length), windowSize.Y/12), Color.White);
             spriteBatch.DrawString(descriptionFont, definitionPartTwo, new Vector2((windowSize.X / 2) - (11 * definitionPartTwo.Length), 2*windowSize.Y/12), Color.White);
             spriteBatch.DrawString(descriptionFont, word.Word, new Vector2((windowSize.X/2)-(11*word.Word.Length), 4*windowSize.Y/12), Color.White);
+            spriteBatch.DrawString(descriptionFont, hangmanGame.GetWordPattern(), new Vector2((windowSize.X / 2) - (11 * word.Word.Length), 5 * windowSize.Y / 12), Color.White);
+
             keyboard.Draw(spriteBatch, gameTime);
-            hangmanBuilder.Draw(spriteBatch, gameTime);
         }
 
         public void Update(GameTime gameTime)
