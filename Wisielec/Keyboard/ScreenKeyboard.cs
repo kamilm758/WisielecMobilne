@@ -37,6 +37,16 @@ namespace Wisielec.Keyboard
         private void LoadContent()
         {
             //tekstury liter
+            tekstury.Add("q", game.Content.Load<Texture2D>("letters/q"));
+            tekstury.Add("w", game.Content.Load<Texture2D>("letters/w"));
+            tekstury.Add("e", game.Content.Load<Texture2D>("letters/e"));
+            tekstury.Add("r", game.Content.Load<Texture2D>("letters/r"));
+            tekstury.Add("t", game.Content.Load<Texture2D>("letters/t"));
+            tekstury.Add("y", game.Content.Load<Texture2D>("letters/y"));
+            tekstury.Add("u", game.Content.Load<Texture2D>("letters/u"));
+            tekstury.Add("i", game.Content.Load<Texture2D>("letters/i"));
+            tekstury.Add("o", game.Content.Load<Texture2D>("letters/o"));
+            tekstury.Add("p", game.Content.Load<Texture2D>("letters/p"));
             tekstury.Add("a", game.Content.Load<Texture2D>("letters/a"));
             //kwadraty, pozycje i wielkości
             int letterWidth = (int)windowSize.X / 20;
@@ -105,16 +115,16 @@ namespace Wisielec.Keyboard
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
         {
             //pierwszy rząd z góry
-            spriteBatch.Draw(tekstury["a"], rectangles["q"], colors["q"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["w"], colors["w"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["e"], colors["e"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["r"], colors["r"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["t"], colors["t"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["y"], colors["y"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["u"], colors["u"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["i"], colors["i"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["o"], colors["o"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["p"], colors["p"]);
+            spriteBatch.Draw(tekstury["q"], rectangles["q"], colors["q"]);
+            spriteBatch.Draw(tekstury["w"], rectangles["w"], colors["w"]);
+            spriteBatch.Draw(tekstury["e"], rectangles["e"], colors["e"]);
+            spriteBatch.Draw(tekstury["r"], rectangles["r"], colors["r"]);
+            spriteBatch.Draw(tekstury["t"], rectangles["t"], colors["t"]);
+            spriteBatch.Draw(tekstury["y"], rectangles["y"], colors["y"]);
+            spriteBatch.Draw(tekstury["u"], rectangles["u"], colors["u"]);
+            spriteBatch.Draw(tekstury["i"], rectangles["i"], colors["i"]);
+            spriteBatch.Draw(tekstury["o"], rectangles["o"], colors["o"]);
+            spriteBatch.Draw(tekstury["p"], rectangles["p"], colors["p"]);
             //drugi rząd
             spriteBatch.Draw(tekstury["a"], rectangles["a"], colors["a"]);
             spriteBatch.Draw(tekstury["a"], rectangles["s"], colors["s"]);

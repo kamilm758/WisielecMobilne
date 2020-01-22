@@ -18,9 +18,12 @@ namespace Wisielec.States
         private ScreenKeyboard keyboard;
         private SpriteFont font;
         private SpriteFont playerNameFont;
+        private SpriteFont informationFont;
         private string playerName="";
         private WordAPI word;
         private bool success = false;
+        //informuje w ilu procentach pobrało się słowo
+        private int fetchWordFromAPIProgress = 0;
 
         public PlayerNameState(Game1 game)
         {
@@ -34,6 +37,7 @@ namespace Wisielec.States
         {
             rectangles.Add("OkRectangle", new Rectangle((int)(windowSize.X / 14), (int)(7 * windowSize.Y / 9), (int)windowSize.X / 12, (int)windowSize.Y / 12));
             font = game.Content.Load<SpriteFont>("fontMenu");
+            informationFont = game.Content.Load<SpriteFont>("InformationFont");
             playerNameFont = game.Content.Load<SpriteFont>("TitleFont");
 
             //wczytywanie w czasie wpisywania nazwy gracza w nowym wątku
@@ -46,6 +50,10 @@ namespace Wisielec.States
         {
             spriteBatch.DrawString(font, game.GetActivity().Resources.GetString(Resource.String.enterPlayerName)
                 ,new Vector2(windowSize.X/3,windowSize.Y/10),Color.White);
+
+            spriteBatch.DrawString(informationFont, game.GetActivity().Resources.GetString(Resource.String.fetchApiInformation)+fetchWordFromAPIProgress.ToString()+"%"
+                , new Vector2(4*windowSize.X / 5, windowSize.Y / 10), Color.White);
+
             spriteBatch.DrawString(playerNameFont, playerName,
                 new Vector2(windowSize.X / 3, 2 * windowSize.Y / 10),Color.White);
             spriteBatch.Draw(textures["OkTexture"], rectangles["OkRectangle"], Color.White);
@@ -80,6 +88,8 @@ namespace Wisielec.States
             request.AddHeader("x-rapidapi-key", "456382e8d4msh04e537e61f0f24fp1a2670jsn8bf005196cc2");
             while (true)
             {
+                //informowanie użytkownika o progresie pobierania słowa z api
+                fetchWordFromAPIProgress += 15;
                 IRestResponse response = client.Execute(request);
                 this.word = Newtonsoft.Json.JsonConvert.DeserializeObject<WordAPI>(response.Content);
                 if (word.Results != null)
@@ -93,6 +103,7 @@ namespace Wisielec.States
                     }
                 }
             }
+            fetchWordFromAPIProgress = 100;
             success = true;
         }
     }

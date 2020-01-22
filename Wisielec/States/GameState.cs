@@ -30,6 +30,7 @@ namespace Wisielec.States
         private int definitionDivider;
         private HangmanBuilder hangmanBuilder;
         private HangmanGame hangmanGame;
+        private int pointsToObtain;
 
         public GameState(Game1 game, string playerName, WordAPI word)
         {
@@ -41,6 +42,8 @@ namespace Wisielec.States
             definitionDivider = (int)windowSize.X / 27;
             hangmanBuilder = new HangmanBuilder(game);
             hangmanGame = new HangmanGame(word.Word);
+            //jeśli gracz wygra-> zarobi tyle punktów ile słowo ma liter
+            pointsToObtain = hangmanGame.GetRemainingLettersToGuess();
             LoadContent();
         }
 

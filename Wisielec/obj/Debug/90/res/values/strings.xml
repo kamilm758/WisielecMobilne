@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="ApplicationName">Wisielec</string>
-    <string name="enterPlayerName">Wprowadz nazwe gracza</string>
-    <string name="newGameLabelButton">Nowa Gra</string>
-    <string name="rankingLabelButton">Ranking</string>
-</resources>
+<resources><string name="ApplicationName">Wisielec</string><string name="enterPlayerName">Wprowadz nazwe gracza</string><string name="newGameLabelButton">Nowa Gra</string><string name="rankingLabelButton">Ranking</string><string name="fetchApiInformation">Pobieranie slowa:</string></resources>

@@ -4,4 +4,5 @@
     <string name="enterPlayerName">Wprowadz nazwe gracza</string>
     <string name="newGameLabelButton">Nowa Gra</string>
     <string name="rankingLabelButton">Ranking</string>
+    <string name="fetchApiInformation">Pobieranie slowa:</string>
 </resources>
