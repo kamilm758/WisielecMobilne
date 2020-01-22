@@ -25,6 +25,13 @@
 /processorParam:TextureFormat=Color
 /build:background.png
 
+#begin ButtonLabelFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:ButtonLabelFont.spritefont
+
 #begin DefinitionFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

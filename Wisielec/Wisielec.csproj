@@ -33,6 +33,11 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <MandroidI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -94,17 +99,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity1.cs" />
+    <Compile Include="Button\TextButton.cs" />
     <Compile Include="Database\SqliteDatabase.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="HangmanLogic\HangmanGame.cs" />
     <Compile Include="HangmanSpriteBuilder\HangmanBuilder.cs" />
     <Compile Include="IComponent.cs" />
+    <Compile Include="Keyboard\KeyboardOperatingMode.cs" />
     <Compile Include="Keyboard\ScreenKeyboard.cs" />
     <Compile Include="Models\RankingItem.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
+    <Compile Include="States\DefeatState.cs" />
     <Compile Include="States\GameState.cs" />
     <Compile Include="States\MenuState.cs" />
     <Compile Include="States\PlayerNameState.cs" />
+    <Compile Include="States\VictoryState.cs" />
     <Compile Include="TouchManager.cs" />
     <Compile Include="WordAPI.cs" />
   </ItemGroup>
@@ -134,6 +143,10 @@
   <ItemGroup>
     <Content Include="AndroidManifest.xml" />
     <Content Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\Values-en\Strings.xml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />

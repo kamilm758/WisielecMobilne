@@ -6,13 +6,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using RestSharp;
 using Wisielec.Keyboard;
+using Java.Util;
 
 namespace Wisielec.States
 {
     class PlayerNameState : IComponent
     {
         private Game1 game;
-        private Dictionary<string, Texture2D> tekstury = new Dictionary<string, Texture2D>();
         private Dictionary<string, Rectangle> rectangles = new Dictionary<string, Rectangle>();
         private Vector2 windowSize;
         private ScreenKeyboard keyboard;
@@ -25,15 +25,13 @@ namespace Wisielec.States
         public PlayerNameState(Game1 game)
         {
             this.game = game;
-            this.keyboard = new ScreenKeyboard(game);
+            this.keyboard = new ScreenKeyboard(game,KeyboardOperatingMode.PlayerName);
             windowSize = new Vector2(game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
             LoadContent();
         }
 
         private void LoadContent()
         {
-            tekstury.Add("background", game.Content.Load<Texture2D>("background"));
-            tekstury.Add("OkTexture", game.Content.Load<Texture2D>("Ok"));
             rectangles.Add("OkRectangle", new Rectangle((int)(windowSize.X / 14), (int)(7 * windowSize.Y / 9), (int)windowSize.X / 12, (int)windowSize.Y / 12));
             font = game.Content.Load<SpriteFont>("fontMenu");
             playerNameFont = game.Content.Load<SpriteFont>("TitleFont");
@@ -44,14 +42,13 @@ namespace Wisielec.States
             newThread.Start();
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Dictionary<string,Texture2D> textures)
         {
-            spriteBatch.Draw(tekstury["background"], new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height), Color.White);
-            spriteBatch.DrawString(font, game.GetActivity().Resources.GetString(Resource.String.wpiszNazweGracza)
+            spriteBatch.DrawString(font, game.GetActivity().Resources.GetString(Resource.String.enterPlayerName)
                 ,new Vector2(windowSize.X/3,windowSize.Y/10),Color.White);
             spriteBatch.DrawString(playerNameFont, playerName,
                 new Vector2(windowSize.X / 3, 2 * windowSize.Y / 10),Color.White);
-            spriteBatch.Draw(tekstury["OkTexture"], rectangles["OkRectangle"], Color.White);
+            spriteBatch.Draw(textures["OkTexture"], rectangles["OkRectangle"], Color.White);
             keyboard.Draw(spriteBatch, gameTime);
         }
 

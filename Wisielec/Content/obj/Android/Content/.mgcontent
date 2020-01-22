@@ -5,6 +5,7 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/background.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/ButtonLabelFont.spritefont</File>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/DefinitionFont.spritefont</File>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/fontMenu.spritefont</File>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/hangman/1.png</File>
@@ -26,6 +27,7 @@
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/TitleFont.spritefont</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

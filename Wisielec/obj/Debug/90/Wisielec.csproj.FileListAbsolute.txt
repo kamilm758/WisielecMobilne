@@ -281,3 +281,5 @@ C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Deb
 C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\bin\Android\AnyCPU\Debug\RestSharp.dll
 C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\bin\Android\AnyCPU\Debug\RestSharp.xml
 C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\android\assets\RestSharp.dll
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\res\values-en\strings.xml
+C:\Users\kamil\Desktop\GitRepos\WisielecMobilne\WisielecMobilne\Wisielec\obj\Debug\90\stamp\SetupDependenciesForDesigner.stamp

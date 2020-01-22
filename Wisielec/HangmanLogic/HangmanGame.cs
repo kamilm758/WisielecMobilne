@@ -17,23 +17,43 @@ namespace Wisielec.HangmanLogic
     public class HangmanGame
     {
         private string wordToGuess = "";
-        private string wordPattern = "";
+        private char[] wordPattern;
         private int remainingLettersToGuess;
+        private int lifes = 9;
 
         public HangmanGame(string wordToGuess)
         {
             this.wordToGuess = wordToGuess;
-            this.wordPattern = wordToGuess;
-            remainingLettersToGuess = wordToGuess.Where(c => c != ' ').Where(v=>(int)v!=39).Count();
+            this.wordPattern = wordToGuess.ToArray<char>();
+            remainingLettersToGuess = wordToGuess.Where(c => c != ' ').Where(v=>(int)v!=39).Where(z=>z!='-').Count();
             //create wordPattern
-            var wordPatternArray = wordPattern.ToArray<char>();
-            for(int i = 0; i < wordPatternArray.Length; i++)
+            for(int i = 0; i < wordPattern.Length; i++)
             {
-                if (wordPatternArray[i] == ' ' || (int)wordPatternArray[i] == 39)
+                if (wordPattern[i] == ' ' || (int)wordPattern[i] == 39 || wordPattern[i] == '-')
                     continue;
-                wordPatternArray[i] = '?';
+                wordPattern[i] = '?';
             }
-            wordPattern = new string(wordPatternArray);
+        }
+
+        public bool CheckLetterInWord(char letter)
+        {
+            int letterToGuessBeforeCheck = this.remainingLettersToGuess;
+            for(int i=0;i<wordToGuess.Length;i++)
+            {
+                if (wordToGuess[i] == letter)
+                {
+                    remainingLettersToGuess--;
+                    wordPattern[i] = letter;
+                }
+            }
+
+            if (letterToGuessBeforeCheck == remainingLettersToGuess)
+            {
+                //jeśli danej litery nie było w słowie-> zabieramy jedno życie
+                lifes--;
+                return false;
+            }
+            return true;
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
@@ -45,9 +65,19 @@ namespace Wisielec.HangmanLogic
 
         }
 
+        #region
         public string GetWordPattern()
         {
-            return wordPattern;
+            return new string(wordPattern);
         }
+        public int GetLifes()
+        {
+            return lifes;
+        }
+        public int GetRemainingLettersToGuess()
+        {
+            return remainingLettersToGuess;
+        }
+        #endregion
     }
 }

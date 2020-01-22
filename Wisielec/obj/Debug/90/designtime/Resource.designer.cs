@@ -67,10 +67,13 @@ namespace Wisielec
 			public const int ApplicationName = 2130837504;
 			
 			// aapt resource value: 0x7F020001
-			public const int Hello = 2130837505;
+			public const int enterPlayerName = 2130837505;
 			
 			// aapt resource value: 0x7F020002
-			public const int wpiszNazweGracza = 2130837506;
+			public const int newGameLabelButton = 2130837506;
+			
+			// aapt resource value: 0x7F020003
+			public const int rankingLabelButton = 2130837507;
 			
 			static String()
 			{

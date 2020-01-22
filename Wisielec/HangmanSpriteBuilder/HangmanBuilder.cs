@@ -17,7 +17,6 @@ namespace Wisielec.HangmanSpriteBuilder
     class HangmanBuilder : IComponent
     {
         private Game1 game;
-        private Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
         private Rectangle hangmanRectangle;
         private int buildLevel = 1;
         private Vector2 windowSize;
@@ -31,19 +30,10 @@ namespace Wisielec.HangmanSpriteBuilder
         }
         private void LoadContent()
         {
-            textures.Add("1", game.Content.Load<Texture2D>("hangman/1"));
-            textures.Add("2", game.Content.Load<Texture2D>("hangman/2"));
-            textures.Add("3", game.Content.Load<Texture2D>("hangman/3"));
-            textures.Add("4", game.Content.Load<Texture2D>("hangman/4"));
-            textures.Add("5", game.Content.Load<Texture2D>("hangman/5"));
-            textures.Add("6", game.Content.Load<Texture2D>("hangman/6"));
-            textures.Add("7", game.Content.Load<Texture2D>("hangman/7"));
-            textures.Add("8", game.Content.Load<Texture2D>("hangman/8"));
-            textures.Add("9", game.Content.Load<Texture2D>("hangman/9"));
-            textures.Add("10", game.Content.Load<Texture2D>("hangman/10"));
+
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Dictionary<string,Texture2D> textures)
         {
             spriteBatch.Draw(textures[buildLevel.ToString()], hangmanRectangle, Color.White);
         }

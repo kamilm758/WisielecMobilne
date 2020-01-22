@@ -22,11 +22,14 @@ namespace Wisielec.Keyboard
         private Dictionary<string, Rectangle> rectangles = new Dictionary<string, Rectangle>();
         private Dictionary<string, Color> colors = new Dictionary<string, Color>();
         private Vector2 windowSize;
+        private List<string> lockedKeys = new List<string>();
         private string buffer = "";
+        private KeyboardOperatingMode operatingMode;
 
-        public ScreenKeyboard(Game1 game)
+        public ScreenKeyboard(Game1 game, KeyboardOperatingMode operatingMode)
         {
             this.game = game;
+            this.operatingMode = operatingMode;
             windowSize = new Vector2(game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
             LoadContent();
         }
@@ -141,9 +144,13 @@ namespace Wisielec.Keyboard
                     if(key.Value.Intersects(new Rectangle((int)touch.Position.X, (int)touch.Position.Y, 1, 1)))
                     {
                         //jeśli klikniemy na jakąś literę
+                        if(!lockedKeys.Contains(key.Key))
                         buffer = buffer + key.Key;
-                        Thread t = new Thread(new ParameterizedThreadStart(ColorAfterClick));
-                        t.Start(key.Key);
+                        if (operatingMode == KeyboardOperatingMode.PlayerName)
+                        {
+                            Thread t = new Thread(new ParameterizedThreadStart(ColorAfterClick));
+                            t.Start(key.Key);
+                        }
                     }
                 }
             }
@@ -162,6 +169,12 @@ namespace Wisielec.Keyboard
             string pom = buffer;
             buffer = "";
             return pom;
+        }
+
+        public void LockKey(string keyLabel)
+        {
+            colors[keyLabel] = Color.Gray;
+            lockedKeys.Add(keyLabel);
         }
     }
 }

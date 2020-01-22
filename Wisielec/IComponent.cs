@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace Wisielec
 {
     public interface IComponent
     {
-        void Draw(SpriteBatch spriteBatch, GameTime gameTime);
+        void Draw(SpriteBatch spriteBatch, GameTime gameTime, Dictionary<string,Texture2D> textures);
         void Update(GameTime gameTime);
 
     }

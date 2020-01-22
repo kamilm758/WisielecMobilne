@@ -5,6 +5,7 @@ using Wisielec.States;
 using System.IO;
 using System;
 using Wisielec.Database;
+using System.Collections.Generic;
 
 namespace Wisielec
 {
@@ -15,6 +16,8 @@ namespace Wisielec
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        Dictionary<string, Texture2D> textures = new Dictionary<string, Texture2D>();
+        Texture2D background;
         IComponent currentState;
         Activity1 activity;
         SqliteDatabase database = new SqliteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
@@ -55,8 +58,22 @@ namespace Wisielec
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             currentState = new MenuState(this);
+            background = Content.Load<Texture2D>("background");
 
             // TODO: use this.Content to load your game content here
+
+            textures.Add("1", Content.Load<Texture2D>("hangman/1"));
+            textures.Add("2", Content.Load<Texture2D>("hangman/2"));
+            textures.Add("3", Content.Load<Texture2D>("hangman/3"));
+            textures.Add("4", Content.Load<Texture2D>("hangman/4"));
+            textures.Add("5", Content.Load<Texture2D>("hangman/5"));
+            textures.Add("6", Content.Load<Texture2D>("hangman/6"));
+            textures.Add("7", Content.Load<Texture2D>("hangman/7"));
+            textures.Add("8", Content.Load<Texture2D>("hangman/8"));
+            textures.Add("9", Content.Load<Texture2D>("hangman/9"));
+            textures.Add("10", Content.Load<Texture2D>("hangman/10"));
+
+            textures.Add("OkTexture", Content.Load<Texture2D>("Ok"));
         }
 
         /// <summary>
@@ -94,12 +111,14 @@ namespace Wisielec
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            currentState.Draw(spriteBatch, gameTime);
+            spriteBatch.Draw(background, new Rectangle(0, 0, (int)GraphicsDevice.Viewport.Width, (int)GraphicsDevice.Viewport.Height), Color.White);
+            currentState.Draw(spriteBatch, gameTime,textures);
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
-
+        //settery, gettery
+        #region
         public Activity1 GetActivity()
         {
             return activity;
@@ -114,5 +133,6 @@ namespace Wisielec
         {
             this.currentState = state;
         }
+        #endregion
     }
 }

@@ -23,8 +23,6 @@ namespace Wisielec.States
         private string playerName;
         private WordAPI word;
         private SpriteFont descriptionFont;
-        private Dictionary<string, Texture2D> tekstury = new Dictionary<string, Texture2D>();
-        private Dictionary<string, Rectangle> rectangles = new Dictionary<string, Rectangle>();
         private Vector2 windowSize;
         private ScreenKeyboard keyboard;
         private string definitionPartOne = "";
@@ -38,7 +36,7 @@ namespace Wisielec.States
             this.game = game;
             this.playerName = playerName;
             this.word = word;
-            this.keyboard = new ScreenKeyboard(game);
+            this.keyboard = new ScreenKeyboard(game,KeyboardOperatingMode.Game);
             windowSize = new Vector2(game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
             definitionDivider = (int)windowSize.X / 27;
             hangmanBuilder = new HangmanBuilder(game);
@@ -48,15 +46,13 @@ namespace Wisielec.States
 
         private void LoadContent()
         {
-            tekstury.Add("background", game.Content.Load<Texture2D>("background"));
             descriptionFont = game.Content.Load<SpriteFont>("DefinitionFont");
             SplitTheDefinition();
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Dictionary<string,Texture2D> textures)
         {
-            spriteBatch.Draw(tekstury["background"], new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height), Color.White);
-            hangmanBuilder.Draw(spriteBatch, gameTime);
+            hangmanBuilder.Draw(spriteBatch, gameTime,textures);
             spriteBatch.DrawString(descriptionFont, definitionPartOne, new Vector2((windowSize.X/2)-(11*definitionPartOne.Length), windowSize.Y/12), Color.White);
             spriteBatch.DrawString(descriptionFont, definitionPartTwo, new Vector2((windowSize.X / 2) - (11 * definitionPartTwo.Length), 2*windowSize.Y/12), Color.White);
             spriteBatch.DrawString(descriptionFont, word.Word, new Vector2((windowSize.X/2)-(11*word.Word.Length), 4*windowSize.Y/12), Color.White);
@@ -67,9 +63,30 @@ namespace Wisielec.States
 
         public void Update(GameTime gameTime)
         {
+            //pobieramy wciśniętą literę
+            var clickedLetter = keyboard.GetPressedKeys();
+            if (clickedLetter!="") //jeśli jakakolwiek litera została wciśnięta
+            {
+                keyboard.LockKey(clickedLetter); //blokujemy ją
+                var isInWord = hangmanGame.CheckLetterInWord(clickedLetter[0]); //sprawdzamy czy występuje w słowie
+
+                if (!isInWord) //jeśli nie->budujemy wisielca
+                {
+                    hangmanBuilder.BuildForward();
+                }
+            }
             var touches = TouchManager.GetTouches();
             keyboard.Update(gameTime, touches);
             hangmanBuilder.Update(gameTime);
+
+            //jeśli graczowi nie zostało ani jedno życie-> gracz przegrywa->wejście do ekranu porażki
+
+            if (hangmanGame.GetLifes() == 0)
+                game.SetCurrentState(new DefeatState(game));
+            //jeśli nie ma więcej liter do zgadnięcia->gracz wygrywa
+            if (hangmanGame.GetRemainingLettersToGuess() == 0)
+                game.SetCurrentState(new VictoryState(game));
+
         }
         private void SplitTheDefinition()
         {

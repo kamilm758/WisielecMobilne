@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using Wisielec.Button;
 using Wisielec.Database;
 using Wisielec.Models;
 
@@ -15,47 +16,37 @@ namespace Wisielec.States
     class MenuState : IComponent
     {
         private Game1 game;
-        private Dictionary<string, Texture2D> tekstury = new Dictionary<string, Texture2D>();
-        private Dictionary<string, Rectangle> rectangles = new Dictionary<string, Rectangle>();
         private Vector2 windowSize;
-        private SpriteFont menuFont;
         private SpriteFont titleFont;
-        List<RankingItem> ranking = new List<RankingItem>();
+        private SpriteFont buttonLabelFont;
+        //buttons
+        private TextButton newGameButton;
+        private TextButton rankingButton;
         public MenuState(Game1 game)
         {
             this.game = game;
             windowSize = new Vector2(game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
+            buttonLabelFont = game.Content.Load<SpriteFont>("ButtonLabelFont");
+            newGameButton = new TextButton(game.GetActivity().Resources.GetString(Resource.String.newGameLabelButton),
+                buttonLabelFont, (int)windowSize.X / 2, (int)(4 * windowSize.Y / 8));
+            rankingButton = new TextButton(game.GetActivity().Resources.GetString(Resource.String.rankingLabelButton),
+                buttonLabelFont, (int)windowSize.X / 2, (int)(5 * windowSize.Y / 8));
             LoadContent();
         }
 
         private void LoadContent()
         {
-            //ładowanie tekstur
-            tekstury.Add("background", game.Content.Load<Texture2D>("background"));
-            tekstury.Add("nowaGra", game.Content.Load<Texture2D>("NowaGra"));
-            tekstury.Add("ranking", game.Content.Load<Texture2D>("Ranking"));
-            //tworzenie kwadratów(pozycje na spriteBatch)
-            rectangles.Add("nowaGra", new Rectangle((int)windowSize.X / 2-((int)windowSize.X / 7)/2
-                , (int)(4*windowSize.Y / 8), (int)windowSize.X / 6, (int)windowSize.Y / 12));
-            rectangles.Add("ranking", new Rectangle((int)windowSize.X / 2 - ((int)windowSize.X / 7) / 2
-                , (int)(5*windowSize.Y / 8), (int)windowSize.X / 6, (int)windowSize.Y / 12));
             //fonty
-            menuFont = game.Content.Load<SpriteFont>("fontMenu");
             titleFont = game.Content.Load<SpriteFont>("TitleFont");
-            //slowo = GetWord();
         }
 
-        public void Draw(SpriteBatch spriteBatch, GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Dictionary<string,Texture2D> textures)
         {
-            spriteBatch.Draw(tekstury["background"], new Rectangle(0, 0, game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height), Color.White);
-            spriteBatch.DrawString(titleFont, "Wisielec", new Vector2(windowSize.X / 2 - 260, windowSize.Y / 5),Color.White);
-            spriteBatch.Draw(tekstury["nowaGra"],rectangles["nowaGra"] ,Color.White);
-            spriteBatch.Draw(tekstury["ranking"], rectangles["ranking"], Color.White);
-            for(int i = 0; i < ranking.Count; i++)
-            {
-                spriteBatch.DrawString(menuFont, ranking[i].PlayerName + " id: " + ranking[i].ID
-                    , new Vector2(400, i * 100), Color.Black);
-            }
+            spriteBatch.DrawString(titleFont, game.GetActivity().Resources.GetString(Resource.String.ApplicationName)
+                , new Vector2(windowSize.X / 2 -(int)titleFont.MeasureString(game.GetActivity().Resources.GetString(Resource.String.ApplicationName)).X/2
+                , windowSize.Y / 5- (int)titleFont.MeasureString(game.GetActivity().Resources.GetString(Resource.String.ApplicationName)).Y / 2),Color.White);
+            spriteBatch.DrawString(buttonLabelFont, newGameButton.GetButtonLabel(), newGameButton.GetVectorPosition(),Color.White);
+            spriteBatch.DrawString(buttonLabelFont, rankingButton.GetButtonLabel(), rankingButton.GetVectorPosition(), Color.White);
         }
 
         public void Update(GameTime gameTime)
@@ -66,14 +57,14 @@ namespace Wisielec.States
         {
             foreach (var touch in TouchManager.GetTouches())
             {
-                if (rectangles["nowaGra"].Intersects(new Rectangle((int)touch.Position.X, (int)touch.Position.Y, 1, 1)))
+                if (newGameButton.GetHitbox().Intersects(new Rectangle((int)touch.Position.X, (int)touch.Position.Y, 1, 1)))
                 {
                     game.SetCurrentState(new PlayerNameState(game));
                 }
 
-                if (rectangles["ranking"].Intersects(new Rectangle((int)touch.Position.X, (int)touch.Position.Y, 1, 1)))
+                if (rankingButton.GetHitbox().Intersects(new Rectangle((int)touch.Position.X, (int)touch.Position.Y, 1, 1)))
                 {
-                   //wyświetlenie rankingu
+                    //wyświetlenie rankingu
                 }
             }
         }

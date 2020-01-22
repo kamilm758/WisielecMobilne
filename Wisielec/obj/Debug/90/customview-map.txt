@@ -1,5 +1,7 @@
 item;obj\Debug\90\res\values\styles.xml
 resources;obj\Debug\90\res\values\strings.xml
 resources;obj\Debug\90\res\values\styles.xml
+resources;obj\Debug\90\res\values-en\strings.xml
 string;obj\Debug\90\res\values\strings.xml
+string;obj\Debug\90\res\values-en\strings.xml
 style;obj\Debug\90\res\values\styles.xml
