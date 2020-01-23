@@ -22,6 +22,7 @@ namespace Wisielec.States
         private Rectangle hangmanRectangle;
         private Vector2 windowSize;
         private SpriteFont resultFont;
+        private SpriteFont previousWordAnswerFont;
         private Vector2 resultVector;
         private TextButton backToMenu;
         private TextButton playAgainButton;
@@ -31,12 +32,14 @@ namespace Wisielec.States
         private APICommunicator communicator;
         private bool success = false;
         private string unrecognizedPreviousWord;
+        private Color playAgainColor=Color.Red;
 
         public DefeatState(Game1 game, string playerName, string unrecognizedPreviousWord)
         {
             this.game = game;
             buttonLabelFont = game.Content.Load<SpriteFont>("ButtonLabelFont");
             resultFont = game.Content.Load<SpriteFont>("ResultInformationFont");
+            previousWordAnswerFont = game.Content.Load<SpriteFont>("RankingItemsFont");
             windowSize = new Vector2(game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
             hangmanRectangle = new Rectangle((int)windowSize.X / 27, (int)windowSize.Y / 12, (int)windowSize.X / 4, (int)(windowSize.Y / 1.2));
             this.playerName = playerName;
@@ -66,8 +69,12 @@ namespace Wisielec.States
         {
             spriteBatch.DrawString(resultFont, game.GetActivity().Resources.GetString(Resource.String.resultLose), resultVector, Color.White);
             spriteBatch.Draw(textures["10"], hangmanRectangle, Color.White);
-            spriteBatch.DrawString(buttonLabelFont, playAgainButton.GetButtonLabel(), playAgainButton.GetVectorPosition(), Color.White);
+            spriteBatch.DrawString(buttonLabelFont, playAgainButton.GetButtonLabel(), playAgainButton.GetVectorPosition(), playAgainColor);
             spriteBatch.DrawString(buttonLabelFont, backToMenu.GetButtonLabel(), backToMenu.GetVectorPosition(), Color.White);
+            spriteBatch.DrawString(previousWordAnswerFont, game.GetActivity().Resources.GetString(Resource.String.answerWas),
+                new Vector2(windowSize.X/2-previousWordAnswerFont.MeasureString(game.GetActivity().Resources.GetString(Resource.String.answerWas)).X/2,6*windowSize.Y/16), Color.White);
+            spriteBatch.DrawString(previousWordAnswerFont, unrecognizedPreviousWord,
+                new Vector2(windowSize.X / 2 - previousWordAnswerFont.MeasureString(unrecognizedPreviousWord).X/2, 8 * windowSize.Y / 16), Color.Red);
         }
 
         public void Update(GameTime gameTime)
@@ -97,6 +104,7 @@ namespace Wisielec.States
         {
             word = communicator.GetWord();
             success = true;
+            playAgainColor = Color.White;
         }
     }
 }

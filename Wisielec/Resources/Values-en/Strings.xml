@@ -11,5 +11,7 @@
     <string name="resultLose">You lose!</string>
     <string name="playAgainButtonLabel">Play again</string>
     <string name="backToMenuButtonLabel">Back to menu</string>
+    <string name="answerWas">The answer was: </string>
+
 
 </resources>

@@ -11,4 +11,5 @@
     <string name="resultLose">Przegrales!</string>
     <string name="playAgainButtonLabel">Zagraj jeszcze raz</string>
     <string name="backToMenuButtonLabel">Powrot do menu</string>
+    <string name="answerWas">Odpowiedzia bylo: </string>
 </resources>

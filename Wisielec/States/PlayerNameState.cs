@@ -25,6 +25,7 @@ namespace Wisielec.States
         private string playerName="";
         private WordAPI word=null;
         private bool success = false;
+        private Color OkButtonColor = Color.Red;
 
         public PlayerNameState(Game1 game)
         {
@@ -58,7 +59,7 @@ namespace Wisielec.States
 
             spriteBatch.DrawString(playerNameFont, playerName,
                 new Vector2(windowSize.X / 3, 2 * windowSize.Y / 10),Color.White);
-            spriteBatch.Draw(textures["OkTexture"], rectangles["OkRectangle"], Color.White);
+            spriteBatch.Draw(textures["OkTexture"], rectangles["OkRectangle"], OkButtonColor);
             keyboard.Draw(spriteBatch, gameTime);
         }
 
@@ -86,6 +87,7 @@ namespace Wisielec.States
         {
             word = communicator.GetWord();
             success = true;
+            OkButtonColor = Color.White;
         }
     }
 }
