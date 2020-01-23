@@ -14,10 +14,16 @@ public final class R {
   }
   public static final class string {
     public static final int ApplicationName=0x7f020000;
-    public static final int enterPlayerName=0x7f020001;
-    public static final int fetchApiInformation=0x7f020002;
-    public static final int newGameLabelButton=0x7f020003;
-    public static final int rankingLabelButton=0x7f020004;
+    public static final int backToMenuButtonLabel=0x7f020001;
+    public static final int enterPlayerName=0x7f020002;
+    public static final int fetchApiInformation=0x7f020003;
+    public static final int informationAboutTakingPrompt=0x7f020004;
+    public static final int newGameLabelButton=0x7f020005;
+    public static final int playAgainButtonLabel=0x7f020006;
+    public static final int rankingLabelButton=0x7f020007;
+    public static final int rankingTitle=0x7f020008;
+    public static final int resultLose=0x7f020009;
+    public static final int resultWin=0x7f02000a;
   }
   public static final class style {
     public static final int Theme_Splash=0x7f030000;

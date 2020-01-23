@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity1.cs" />
+    <Compile Include="API\APICommunicator.cs" />
     <Compile Include="Button\TextButton.cs" />
     <Compile Include="Database\SqliteDatabase.cs" />
     <Compile Include="Game1.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="States\GameState.cs" />
     <Compile Include="States\MenuState.cs" />
     <Compile Include="States\PlayerNameState.cs" />
+    <Compile Include="States\RankingState.cs" />
     <Compile Include="States\VictoryState.cs" />
     <Compile Include="TouchManager.cs" />
     <Compile Include="WordAPI.cs" />

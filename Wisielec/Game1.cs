@@ -6,6 +6,7 @@ using System.IO;
 using System;
 using Wisielec.Database;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework.Media;
 
 namespace Wisielec
 {
@@ -22,8 +23,9 @@ namespace Wisielec
         Activity1 activity;
         SqliteDatabase database = new SqliteDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
             , "ranking.db3"));
+        private Song mainTheme;
 
-        
+
 
         public Game1(Activity1 activity)
         {
@@ -59,6 +61,8 @@ namespace Wisielec
             spriteBatch = new SpriteBatch(GraphicsDevice);
             currentState = new MenuState(this);
             background = Content.Load<Texture2D>("background");
+            mainTheme = Content.Load<Song>("music/mainTheme");
+            MediaPlayer.Play(mainTheme);
 
             // TODO: use this.Content to load your game content here
 
@@ -92,9 +96,6 @@ namespace Wisielec
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                Exit();
-
             // TODO: Add your update logic here
             currentState.Update(gameTime);
             TouchManager.Update(gameTime);

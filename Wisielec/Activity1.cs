@@ -5,6 +5,8 @@ using Android.Hardware;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
+using Microsoft.Xna.Framework;
+using System;
 
 namespace Wisielec
 {
@@ -18,14 +20,16 @@ namespace Wisielec
         , ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.Keyboard | ConfigChanges.KeyboardHidden | ConfigChanges.ScreenSize | ConfigChanges.ScreenLayout)]
     public class Activity1 : Microsoft.Xna.Framework.AndroidGameActivity, Android.Hardware.ISensorEventListener
     {
-        private float lightSensorValue=0;
-        private SensorManager sensorService;
+        private SensorManager sensorService; //sensor service do sensorów
+        private double previousTime = (DateTime.Now - new DateTime(1970, 1, 1)).TotalMilliseconds;
+        private Vector3 previousAccelState = Vector3.Zero;
+        public EventHandler onShake;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             sensorService = (SensorManager)GetSystemService(Context.SensorService);
-            var lightSensor = sensorService.GetDefaultSensor(SensorType.Light);
-            sensorService.RegisterListener(this, lightSensor, Android.Hardware.SensorDelay.Game);
+            var acceleometerSensor = sensorService.GetDefaultSensor(SensorType.Accelerometer);
+            sensorService.RegisterListener(this, acceleometerSensor, Android.Hardware.SensorDelay.Game);
             var g = new Game1(this);
             SetContentView((View)g.Services.GetService(typeof(View)));
             g.Run();
@@ -38,13 +42,24 @@ namespace Wisielec
 
         public void OnSensorChanged(SensorEvent e)
         {
-            e.Sensor = sensorService.GetDefaultSensor(SensorType.Light);
-            lightSensorValue = e.Values[0];
-        }
+           // System.Diagnostics.Debug.WriteLine((DateTime.Now - new DateTime(1970, 1, 1)).TotalMilliseconds);
+            var currentTime = (DateTime.Now - new DateTime(1970, 1, 1)).TotalMilliseconds;
+            e.Sensor = sensorService.GetDefaultSensor(SensorType.Accelerometer);
+            if (Math.Abs(previousTime - currentTime) > 250)
+            {
+                var currentValues = new Vector3(e.Values[0], e.Values[1], e.Values[2]);
+                Vector3 difference = currentValues - previousAccelState;
+                float diffrenceSum = difference.X + difference.Y + difference.Z;
+                if (Math.Abs(diffrenceSum) > 35)
+                {
+                    previousTime = currentTime;
+                    previousAccelState = currentValues;
+                    onShake?.Invoke(this, new EventArgs());
+                    System.Diagnostics.Debug.WriteLine("shake!!");
+                }
+            }
+            
 
-        public float GetLightValue()
-        {
-            return lightSensorValue;
         }
     }
 }

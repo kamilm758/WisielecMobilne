@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework.Graphics;
 using RestSharp;
 using Wisielec.Keyboard;
 using Java.Util;
+using System;
+using Wisielec.API;
 
 namespace Wisielec.States
 {
@@ -14,20 +16,20 @@ namespace Wisielec.States
     {
         private Game1 game;
         private Dictionary<string, Rectangle> rectangles = new Dictionary<string, Rectangle>();
+        private APICommunicator communicator;
         private Vector2 windowSize;
         private ScreenKeyboard keyboard;
         private SpriteFont font;
         private SpriteFont playerNameFont;
         private SpriteFont informationFont;
         private string playerName="";
-        private WordAPI word;
+        private WordAPI word=null;
         private bool success = false;
-        //informuje w ilu procentach pobrało się słowo
-        private int fetchWordFromAPIProgress = 0;
 
         public PlayerNameState(Game1 game)
         {
             this.game = game;
+            communicator = new APICommunicator(game);
             this.keyboard = new ScreenKeyboard(game,KeyboardOperatingMode.PlayerName);
             windowSize = new Vector2(game.GraphicsDevice.Viewport.Width, game.GraphicsDevice.Viewport.Height);
             LoadContent();
@@ -41,7 +43,7 @@ namespace Wisielec.States
             playerNameFont = game.Content.Load<SpriteFont>("TitleFont");
 
             //wczytywanie w czasie wpisywania nazwy gracza w nowym wątku
-            ThreadStart ts = new ThreadStart(GetWord);
+            ThreadStart ts = new ThreadStart(GetWordFromApi);
             Thread newThread = new Thread(ts);
             newThread.Start();
         }
@@ -51,7 +53,7 @@ namespace Wisielec.States
             spriteBatch.DrawString(font, game.GetActivity().Resources.GetString(Resource.String.enterPlayerName)
                 ,new Vector2(windowSize.X/3,windowSize.Y/10),Color.White);
 
-            spriteBatch.DrawString(informationFont, game.GetActivity().Resources.GetString(Resource.String.fetchApiInformation)+fetchWordFromAPIProgress.ToString()+"%"
+            spriteBatch.DrawString(informationFont, game.GetActivity().Resources.GetString(Resource.String.fetchApiInformation)+communicator.GetFetchProgress().ToString()+"%"
                 , new Vector2(4*windowSize.X / 5, windowSize.Y / 10), Color.White);
 
             spriteBatch.DrawString(playerNameFont, playerName,
@@ -79,31 +81,10 @@ namespace Wisielec.States
             }
             keyboard.Update(gameTime,touches);
         }
-        //get word with description from API
-        public void GetWord()
+
+        private void GetWordFromApi()
         {
-            var client = new RestClient("https://wordsapiv1.p.rapidapi.com/words/?random=true");
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("x-rapidapi-host", "wordsapiv1.p.rapidapi.com");
-            request.AddHeader("x-rapidapi-key", "456382e8d4msh04e537e61f0f24fp1a2670jsn8bf005196cc2");
-            while (true)
-            {
-                //informowanie użytkownika o progresie pobierania słowa z api
-                fetchWordFromAPIProgress += 15;
-                IRestResponse response = client.Execute(request);
-                this.word = Newtonsoft.Json.JsonConvert.DeserializeObject<WordAPI>(response.Content);
-                if (word.Results != null)
-                {
-                    if (word.Results[0].Definition != null)
-                    {
-                        if (word.Results[0].Definition.Length < (int)(2 * windowSize.X / 27))
-                        {
-                            break;
-                        }
-                    }
-                }
-            }
-            fetchWordFromAPIProgress = 100;
+            word = communicator.GetWord();
             success = true;
         }
     }

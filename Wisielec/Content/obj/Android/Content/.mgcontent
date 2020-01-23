@@ -51,9 +51,15 @@
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/Potwierdz.png</File>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/Powrot.png</File>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/Ranking.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/RankingItemsFont.spritefont</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/RankingTitleFont.spritefont</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/ResultInformationFont.spritefont</File>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/TitleFont.spritefont</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

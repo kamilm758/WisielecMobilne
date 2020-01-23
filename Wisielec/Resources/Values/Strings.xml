@@ -5,4 +5,10 @@
     <string name="newGameLabelButton">Nowa Gra</string>
     <string name="rankingLabelButton">Ranking</string>
     <string name="fetchApiInformation">Pobieranie slowa:</string>
+    <string name="informationAboutTakingPrompt">Uzyto podpowiedzi!</string>
+    <string name="rankingTitle">Ranking</string>
+    <string name="resultWin">Wygrales!</string>
+    <string name="resultLose">Przegrales!</string>
+    <string name="playAgainButtonLabel">Zagraj jeszcze raz</string>
+    <string name="backToMenuButtonLabel">Powrot do menu</string>
 </resources>
