@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace Wisielec.States
         //buttons
         private TextButton newGameButton;
         private TextButton rankingButton;
+        private Song mainTheme;
         public MenuState(Game1 game)
         {
             this.game = game;
@@ -38,6 +40,8 @@ namespace Wisielec.States
         {
             //fonty
             titleFont = game.Content.Load<SpriteFont>("TitleFont");
+            mainTheme = game.Content.Load<Song>("music/mainTheme");
+            MediaPlayer.Play(mainTheme);
         }
 
         public void Draw(SpriteBatch spriteBatch, GameTime gameTime, Dictionary<string,Texture2D> textures)

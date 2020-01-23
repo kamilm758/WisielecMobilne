@@ -47,7 +47,24 @@ namespace Wisielec.Keyboard
             tekstury.Add("i", game.Content.Load<Texture2D>("letters/i"));
             tekstury.Add("o", game.Content.Load<Texture2D>("letters/o"));
             tekstury.Add("p", game.Content.Load<Texture2D>("letters/p"));
+
             tekstury.Add("a", game.Content.Load<Texture2D>("letters/a"));
+            tekstury.Add("s", game.Content.Load<Texture2D>("letters/s"));
+            tekstury.Add("d", game.Content.Load<Texture2D>("letters/d"));
+            tekstury.Add("f", game.Content.Load<Texture2D>("letters/f"));
+            tekstury.Add("g", game.Content.Load<Texture2D>("letters/g"));
+            tekstury.Add("h", game.Content.Load<Texture2D>("letters/h"));
+            tekstury.Add("j", game.Content.Load<Texture2D>("letters/j"));
+            tekstury.Add("k", game.Content.Load<Texture2D>("letters/k"));
+            tekstury.Add("l", game.Content.Load<Texture2D>("letters/l"));
+
+            tekstury.Add("z", game.Content.Load<Texture2D>("letters/z"));
+            tekstury.Add("x", game.Content.Load<Texture2D>("letters/x"));
+            tekstury.Add("c", game.Content.Load<Texture2D>("letters/c"));
+            tekstury.Add("v", game.Content.Load<Texture2D>("letters/v"));
+            tekstury.Add("b", game.Content.Load<Texture2D>("letters/b"));
+            tekstury.Add("n", game.Content.Load<Texture2D>("letters/n"));
+            tekstury.Add("m", game.Content.Load<Texture2D>("letters/m"));
             //kwadraty, pozycje i wielkości
             int letterWidth = (int)windowSize.X / 20;
             int letterHeight = (int)windowSize.Y / 10;
@@ -127,22 +144,22 @@ namespace Wisielec.Keyboard
             spriteBatch.Draw(tekstury["p"], rectangles["p"], colors["p"]);
             //drugi rząd
             spriteBatch.Draw(tekstury["a"], rectangles["a"], colors["a"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["s"], colors["s"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["d"], colors["d"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["f"], colors["f"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["g"], colors["g"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["h"], colors["h"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["j"], colors["j"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["k"], colors["k"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["l"], colors["l"]);
+            spriteBatch.Draw(tekstury["s"], rectangles["s"], colors["s"]);
+            spriteBatch.Draw(tekstury["d"], rectangles["d"], colors["d"]);
+            spriteBatch.Draw(tekstury["f"], rectangles["f"], colors["f"]);
+            spriteBatch.Draw(tekstury["g"], rectangles["g"], colors["g"]);
+            spriteBatch.Draw(tekstury["h"], rectangles["h"], colors["h"]);
+            spriteBatch.Draw(tekstury["j"], rectangles["j"], colors["j"]);
+            spriteBatch.Draw(tekstury["k"], rectangles["k"], colors["k"]);
+            spriteBatch.Draw(tekstury["l"], rectangles["l"], colors["l"]);
             //trzeci rząd
-            spriteBatch.Draw(tekstury["a"], rectangles["z"], colors["z"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["x"], colors["x"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["c"], colors["c"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["v"], colors["v"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["b"], colors["b"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["n"], colors["n"]);
-            spriteBatch.Draw(tekstury["a"], rectangles["m"], colors["m"]);
+            spriteBatch.Draw(tekstury["z"], rectangles["z"], colors["z"]);
+            spriteBatch.Draw(tekstury["x"], rectangles["x"], colors["x"]);
+            spriteBatch.Draw(tekstury["c"], rectangles["c"], colors["c"]);
+            spriteBatch.Draw(tekstury["v"], rectangles["v"], colors["v"]);
+            spriteBatch.Draw(tekstury["b"], rectangles["b"], colors["b"]);
+            spriteBatch.Draw(tekstury["n"], rectangles["n"], colors["n"]);
+            spriteBatch.Draw(tekstury["m"], rectangles["m"], colors["m"]);
         }
 
         public void Update(GameTime gameTime, List<TouchLocation> touches)
