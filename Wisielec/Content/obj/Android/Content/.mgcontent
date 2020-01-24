@@ -7,6 +7,12 @@
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/background.png</File>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/ButtonLabelFont.spritefont</File>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/DefinitionFont.spritefont</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/drawing/captainAmerica.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/drawing/drawingArrow.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/drawing/drawingClock.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/drawing/drawingGlobus.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/drawing/drawingHearth.png</File>
+    <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/drawing/kisspng-sidewalk-chalk-drawing-cartoon-vector-chalk-pattern-5a7dc8403dacd1.1718168015181927042526.png</File>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/fontMenu.spritefont</File>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/hangman/1.png</File>
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/hangman/10.png</File>
@@ -57,6 +63,12 @@
     <File>C:/Users/kamil/Desktop/GitRepos/WisielecMobilne/WisielecMobilne/Wisielec/Content/TitleFont.spritefont</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

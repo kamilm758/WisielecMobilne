@@ -49,6 +49,9 @@ namespace Wisielec.States
                 , windowSize.Y / 5- (int)titleFont.MeasureString(game.GetActivity().Resources.GetString(Resource.String.ApplicationName)).Y / 2),Color.White);
             spriteBatch.DrawString(buttonLabelFont, newGameButton.GetButtonLabel(), newGameButton.GetVectorPosition(),Color.White);
             spriteBatch.DrawString(buttonLabelFont, rankingButton.GetButtonLabel(), rankingButton.GetVectorPosition(), Color.White);
+            spriteBatch.Draw(textures["drawingHearth"], new Rectangle((int)windowSize.X / 8, (int)windowSize.Y / 3, (int)windowSize.X / 5, (int)windowSize.Y / 3), Color.White);
+            spriteBatch.Draw(textures["drawingClock"], new Rectangle(10*(int)windowSize.X / 15, 5*(int)windowSize.Y / 9, (int)windowSize.X / 5, (int)windowSize.Y / 3), Color.White);
+
         }
 
         public void Update(GameTime gameTime)

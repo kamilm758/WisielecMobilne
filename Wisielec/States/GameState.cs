@@ -64,10 +64,10 @@ namespace Wisielec.States
             hangmanBuilder.Draw(spriteBatch, gameTime,textures);
             spriteBatch.DrawString(descriptionFont, definitionPartOne, new Vector2((windowSize.X/2)-(11*definitionPartOne.Length), windowSize.Y/12), Color.White);
             spriteBatch.DrawString(descriptionFont, definitionPartTwo, new Vector2((windowSize.X / 2) - (11 * definitionPartTwo.Length), 2*windowSize.Y/12), Color.White);
-            spriteBatch.DrawString(descriptionFont, word.Word, new Vector2((windowSize.X/2)-(11*word.Word.Length), 4*windowSize.Y/12), Color.White);
+            //spriteBatch.DrawString(descriptionFont, word.Word, new Vector2((windowSize.X/2)-(11*word.Word.Length), 4*windowSize.Y/12), Color.White);
             spriteBatch.DrawString(descriptionFont, hangmanGame.GetWordPattern(), new Vector2((windowSize.X / 2) - (11 * word.Word.Length), 5 * windowSize.Y / 12), Color.White);
             spriteBatch.DrawString(informationFont, informationAboutTakingPrompt,
-                new Vector2(4 * windowSize.X / 5, windowSize.Y / 10), Color.Red);
+                new Vector2(4 * windowSize.X / 5, 7*windowSize.Y / 8), Color.Red);
 
             keyboard.Draw(spriteBatch, gameTime);
         }

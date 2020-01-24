@@ -58,8 +58,10 @@ namespace Wisielec.States
                 , new Vector2(4*windowSize.X / 5, windowSize.Y / 10), Color.White);
 
             spriteBatch.DrawString(playerNameFont, playerName,
-                new Vector2(windowSize.X / 3, 2 * windowSize.Y / 10),Color.White);
+                new Vector2(windowSize.X /2-playerNameFont.MeasureString(playerName).X/2 , 2 * windowSize.Y / 10),Color.White);
             spriteBatch.Draw(textures["OkTexture"], rectangles["OkRectangle"], OkButtonColor);
+            spriteBatch.Draw(textures["drawingArrow"], new Rectangle((int)windowSize.X / 15, 5 * (int)windowSize.Y / 9, (int)windowSize.X / 5, (int)windowSize.Y / 9), Color.White);
+
             keyboard.Draw(spriteBatch, gameTime);
         }
 

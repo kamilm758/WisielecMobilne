@@ -78,6 +78,11 @@ namespace Wisielec
             textures.Add("10", Content.Load<Texture2D>("hangman/10"));
 
             textures.Add("OkTexture", Content.Load<Texture2D>("Ok"));
+            textures.Add("drawingHearth", Content.Load<Texture2D>("drawing/drawingHearth"));
+            textures.Add("drawingClock", Content.Load<Texture2D>("drawing/drawingClock"));
+            textures.Add("drawingGlobus", Content.Load<Texture2D>("drawing/drawingGlobus"));
+            textures.Add("drawingArrow", Content.Load<Texture2D>("drawing/drawingArrow"));
+            textures.Add("captainAmerica", Content.Load<Texture2D>("drawing/captainAmerica"));
         }
 
         /// <summary>

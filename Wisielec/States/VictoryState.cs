@@ -66,6 +66,7 @@ namespace Wisielec.States
             spriteBatch.Draw(textures["8"], hangmanRectangle, Color.White);
             spriteBatch.DrawString(buttonLabelFont, playAgainButton.GetButtonLabel(), playAgainButton.GetVectorPosition(), Color.White);
             spriteBatch.DrawString(buttonLabelFont, backToMenu.GetButtonLabel(), backToMenu.GetVectorPosition(), Color.White);
+            spriteBatch.Draw(textures["captainAmerica"], new Rectangle(3*(int)windowSize.X / 5, (int)windowSize.Y / 8, (int)windowSize.X / 4, 4*(int)windowSize.Y / 5), Color.White);
         }
 
         public void Update(GameTime gameTime)
